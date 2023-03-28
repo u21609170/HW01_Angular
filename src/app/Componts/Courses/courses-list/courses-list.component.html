@@ -1,0 +1,19 @@
+<table class="table" *ngIf="vakke && vakke.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Description</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vak of vakke">
+        <td>{{ vak.name}}</td>
+        <td>{{ vak.duration}}</td>
+        <td>@{{ vak.description}}</td>
+        <td><button type="button" class="btn btn-info mx-3" (click)="OnEdit(vak.id)">Edit</button><button type="button" class="btn btn-danger" (click)="OnDelete(vak.id)">Delete</button></td>
+      </tr>      
+    </tbody>
+  </table>
+  <p *ngIf="!vakke || vakke.length <= 0">No Courses Found</p>
